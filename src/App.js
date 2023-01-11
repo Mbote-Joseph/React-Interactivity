@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+  let Copy = () => {
+    let textCopied = document.getElementById("text");
+    console.log(textCopied);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container" id="text">
+        <h1>React Learning </h1>
+        <p>This is a react tutorial to practice on copying HTML code</p>
+      </div>
+
+      <button onClick={Copy}>Copy</button>
     </div>
   );
 }
