@@ -1,6 +1,7 @@
 import "./App.css";
 import { sculptureList } from "./data.js";
 import { useState } from "react";
+import FilterableList from "./FilterableList";
 
 function App() {
   // let Copy = () => {
@@ -29,6 +30,22 @@ function App() {
   };
   // <img src={sculptureList[index].url} alt={sculptureList[index].alt} />
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  function handleFirstNameChange(e) {
+    setFirstName(e.target.value);
+  }
+
+  function handleLastNameChange(e) {
+    setLastName(e.target.value);
+  }
+
+  function handleReset() {
+    setFirstName("");
+    setLastName("");
+  }
+
   return (
     <div className="App">
       <div className="container" id="text">
@@ -49,6 +66,27 @@ function App() {
 
         <p>{sculptureList[index].description}</p>
       </div>
+
+      <h4>Form Learning </h4>
+
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input
+          placeholder="First name"
+          value={firstName}
+          onChange={handleFirstNameChange}
+        />
+        <input
+          placeholder="Last name"
+          value={lastName}
+          onChange={handleLastNameChange}
+        />
+        <h1>
+          Hi, {firstName} {lastName}
+        </h1>
+        <button onClick={handleReset}>Reset</button>
+      </form>
+
+      <FilterableList />
     </div>
   );
 }
